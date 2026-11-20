@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>7th Ani & Bday</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							rosegold: "#b9897f",
+							cream: "#fff7ef",
+							blush: "#f8d9d7",
+							charcoal: "#2f2a2a",
+							petal: "#ffeceb",
+							champagne: "#f2e3d5",
+						},
+						fontFamily: {
+							heading: ["Cormorant Garamond", "serif"],
+							body: ["Nunito Sans", "sans-serif"],
+						},
+						boxShadow: {
+							romantic: "0 20px 55px -18px rgba(126, 83, 79, 0.25)",
+						},
+					},
+				},
+			};
+		</script>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				background:
+					radial-gradient(circle at 8% 8%, rgba(255, 242, 240, 0.9), transparent 35%),
+					radial-gradient(circle at 92% 15%, rgba(248, 217, 215, 0.7), transparent 30%),
+					linear-gradient(135deg, #fff8f1 0%, #fff0ed 45%, #ffe9e7 100%);
+			}
+
+			body,
+			body * {
+				text-align: center !important;
+			}
+
+			.fade-in {
+				opacity: 0;
+				transform: translateY(24px);
+				transition: opacity 0.75s ease, transform 0.75s ease;
+			}
+
+			.fade-in.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.romantic-glass {
+				background: rgba(255, 250, 246, 0.68);
+				border: 1px solid rgba(185, 137, 127, 0.2);
+				backdrop-filter: blur(10px);
+			}
+
+			.timeline-line {
+				background: linear-gradient(to bottom, #d4a39a, #efc2ba, #d4a39a);
+			}
+
+			.polaroid {
+				transform: rotate(var(--tilt, -2deg));
+			}
+
+			.reason-card {
+				perspective: 1200px;
+			}
+
+			.reason-card-inner {
+				position: relative;
+				transform-style: preserve-3d;
+				transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+			}
+
+			.reason-card.flipped .reason-card-inner {
+				transform: rotateY(180deg);
+			}
+
+			.reason-face {
+				backface-visibility: hidden;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.reason-back {
+				transform: rotateY(180deg);
+			}
+
+			.stamp {
+				opacity: 0;
+				transform: rotate(-18deg) scale(0.25);
+			}
+
+			.stamp.redeemed {
+				animation: stamp-in 0.55s ease-out forwards;
+			}
+
+			@keyframes stamp-in {
+				0% {
+					opacity: 0;
+					transform: rotate(-18deg) scale(0.2);
+				}
+				70% {
+					opacity: 1;
+					transform: rotate(-10deg) scale(1.12);
+				}
+				100% {
+					opacity: 1;
+					transform: rotate(-12deg) scale(1);
+				}
+			}
+
+			.float-bob {
+				animation: bob 3.6s ease-in-out infinite;
+			}
+
+			.card-frame {
+				background: linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(249, 233, 231, 0.94));
+				border: 10px solid #b9897f;
+				box-shadow: 0 20px 45px -20px rgba(126, 83, 79, 0.4);
+			}
+
+			#cameraFeed {
+				transform: scaleX(-1);
+			}
+
+			@keyframes bob {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-6px);
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.fade-in,
+				.reason-card-inner,
+				.stamp,
+				.float-bob {
+					transition: none !important;
+					animation: none !important;
+				}
+			}
+		</style>
+	</head>
+	<body class="font-body text-charcoal antialiased selection:bg-blush/70 selection:text-charcoal">
+		<header class="relative overflow-hidden pb-20 pt-14 sm:pt-16">
+			<div class="mx-auto max-w-6xl px-6">
+				<nav class="fade-in mb-14 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-charcoal/80 sm:justify-end">
+					<a class="rounded-full bg-white/60 px-4 py-2 transition hover:bg-white" href="#journey">Our Journey</a>
+					<a class="rounded-full bg-white/60 px-4 py-2 transition hover:bg-white" href="#reasons">7 Reasons</a>
+					<a class="rounded-full bg-white/60 px-4 py-2 transition hover:bg-white" href="#coupons">Coupons</a>
+				</nav>
+
+				<section class="fade-in romantic-glass relative overflow-hidden rounded-[2rem] p-8 shadow-romantic sm:p-12">
+					<div class="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-blush/45 blur-3xl"></div>
+					<div class="absolute -bottom-14 -left-10 h-40 w-40 rounded-full bg-champagne/80 blur-2xl"></div>
+
+					<p class="mb-2 text-xs font-extrabold uppercase tracking-[0.3em] text-rosegold/90">
+						November 21, 2020 • 11:20 PM
+					</p>
+					<h1 class="font-heading text-4xl font-bold leading-tight text-charcoal sm:text-6xl lg:text-7xl">
+						Happiest 23rd Birthday
+						<span class="block text-rosegold">& Happy 7th Anniversary, Loku Bole!</span>
+					</h1>
+					<p class="mt-6 max-w-2xl text-base text-charcoal/80 sm:text-lg">
+						Every second with you has turned ordinary days into our favorite memories. This little corner of the internet is for us, our story, and the adventure still ahead.
+					</p>
+
+					<div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-5">
+						<article class="rounded-2xl bg-white/85 p-4 text-center shadow-sm">
+							<p id="countYears" class="font-heading text-4xl font-bold text-rosegold">0</p>
+							<p class="text-xs font-bold uppercase tracking-[0.18em] text-charcoal/65">Years</p>
+						</article>
+						<article class="rounded-2xl bg-white/85 p-4 text-center shadow-sm">
+							<p id="countDays" class="font-heading text-4xl font-bold text-rosegold">0</p>
+							<p class="text-xs font-bold uppercase tracking-[0.18em] text-charcoal/65">Days</p>
+						</article>
+						<article class="rounded-2xl bg-white/85 p-4 text-center shadow-sm">
+							<p id="countHours" class="font-heading text-4xl font-bold text-rosegold">0</p>
+							<p class="text-xs font-bold uppercase tracking-[0.18em] text-charcoal/65">Hours</p>
+						</article>
+						<article class="rounded-2xl bg-white/85 p-4 text-center shadow-sm">
+							<p id="countMinutes" class="font-heading text-4xl font-bold text-rosegold">0</p>
+							<p class="text-xs font-bold uppercase tracking-[0.18em] text-charcoal/65">Minutes</p>
+						</article>
+						<article class="col-span-2 rounded-2xl bg-white/85 p-4 text-center shadow-sm sm:col-span-1">
+							<p id="countSeconds" class="font-heading text-4xl font-bold text-rosegold">0</p>
+							<p class="text-xs font-bold uppercase tracking-[0.18em] text-charcoal/65">Seconds</p>
+						</article>
+					</div>
+				</section>
+			</div>
+		</header>
+
+		<main class="mx-auto max-w-6xl space-y-20 px-6 pb-24">
+			<section id="journey" class="fade-in scroll-mt-20">
+				<div class="mb-10 text-center">
+					<p class="text-xs font-extrabold uppercase tracking-[0.3em] text-rosegold/90">Our Love Story</p>
+					<h2 class="font-heading text-4xl font-bold sm:text-5xl">Our 7-Year Journey</h2>
+				</div>
+
+				<div class="relative mx-auto max-w-5xl">
+					<div class="timeline-line absolute left-4 top-0 h-full w-1 rounded-full sm:left-1/2 sm:-translate-x-1/2"></div>
+
+					<div class="space-y-10">
+						<article class="fade-in relative sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
+							<div class="mb-5 sm:mb-0 sm:pr-12">
+								<div class="polaroid ml-10 rounded-2xl border border-rosegold/20 bg-cream p-3 shadow-romantic sm:ml-0" style="--tilt: -3deg">
+									<img class="mx-auto max-h-[26rem] w-full rounded-xl bg-petal/40 object-contain" src="year1.jpeg" alt="Romantic couple walking together" />
+								</div>
+							</div>
+							<div class="relative rounded-2xl bg-white/80 p-5 shadow-sm sm:pl-10">
+								<span class="absolute -left-[2.3rem] top-7 h-4 w-4 rounded-full border-4 border-cream bg-rosegold sm:left-auto sm:-right-[2.8rem]"></span>
+								<p class="text-sm font-extrabold uppercase tracking-[0.22em] text-rosegold">2020</p>
+								<h3 class="mt-1 font-heading text-2xl font-bold">The Night It All Started</h3>
+								<p class="mt-2 text-charcoal/75">November 21, 11:20 PM. One conversation changed everything, and suddenly forever had a name.</p>
+							</div>
+						</article>
+
+						<article class="fade-in relative sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
+							<div class="order-2 mb-5 sm:order-1 sm:mb-0 sm:pl-12">
+								<div class="polaroid ml-10 rounded-2xl border border-rosegold/20 bg-cream p-3 shadow-romantic sm:ml-0" style="--tilt: 2deg">
+									<img class="mx-auto max-h-[26rem] w-full rounded-xl bg-petal/40 object-contain" src="year2.jpeg" alt="Hands holding coffee together" />
+								</div>
+							</div>
+							<div class="order-1 relative rounded-2xl bg-white/80 p-5 shadow-sm sm:order-2 sm:pr-10">
+								<span class="absolute -left-[2.3rem] top-7 h-4 w-4 rounded-full border-4 border-cream bg-rosegold sm:-left-[2.8rem]"></span>
+								<p class="text-sm font-extrabold uppercase tracking-[0.22em] text-rosegold">2021</p>
+								<h3 class="mt-1 font-heading text-2xl font-bold">Late-Night Calls & Big Dreams</h3>
+								<p class="mt-2 text-charcoal/75">We turned little routines into love rituals, collecting tiny moments that still feel magical.</p>
+							</div>
+						</article>
+
+						<article class="fade-in relative sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
+							<div class="mb-5 sm:mb-0 sm:pr-12">
+								<div class="polaroid ml-10 rounded-2xl border border-rosegold/20 bg-cream p-3 shadow-romantic sm:ml-0" style="--tilt: -1deg">
+									<img class="mx-auto max-h-[26rem] w-full rounded-xl bg-petal/40 object-contain" src="year3.jpeg" alt="Couple in a city lights setting" />
+								</div>
+							</div>
+							<div class="relative rounded-2xl bg-white/80 p-5 shadow-sm sm:pl-10">
+								<span class="absolute -left-[2.3rem] top-7 h-4 w-4 rounded-full border-4 border-cream bg-rosegold sm:left-auto sm:-right-[2.8rem]"></span>
+								<p class="text-sm font-extrabold uppercase tracking-[0.22em] text-rosegold">2022</p>
+								<h3 class="mt-1 font-heading text-2xl font-bold">Our Safe Place</h3>
+								<p class="mt-2 text-charcoal/75">No matter what the world looked like, being with you felt like home and laughter in one heartbeat.</p>
+							</div>
+						</article>
+
+						<article class="fade-in relative sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
+							<div class="order-2 mb-5 sm:order-1 sm:mb-0 sm:pl-12">
+								<div class="polaroid ml-10 rounded-2xl border border-rosegold/20 bg-cream p-3 shadow-romantic sm:ml-0" style="--tilt: 3deg">
+									<img class="mx-auto max-h-[26rem] w-full rounded-xl bg-petal/40 object-contain" src="year4.jpeg" alt="Romantic dinner setup with candles" />
+								</div>
+							</div>
+							<div class="order-1 relative rounded-2xl bg-white/80 p-5 shadow-sm sm:order-2 sm:pr-10">
+								<span class="absolute -left-[2.3rem] top-7 h-4 w-4 rounded-full border-4 border-cream bg-rosegold sm:-left-[2.8rem]"></span>
+								<p class="text-sm font-extrabold uppercase tracking-[0.22em] text-rosegold">2023</p>
+								<h3 class="mt-1 font-heading text-2xl font-bold">Tiny Traditions, Big Love</h3>
+								<p class="mt-2 text-charcoal/75">From favorite songs to silly jokes, we built a world that only we understand and adore.</p>
+							</div>
+						</article>
+
+						<article class="fade-in relative sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
+							<div class="mb-5 sm:mb-0 sm:pr-12">
+								<div class="polaroid ml-10 rounded-2xl border border-rosegold/20 bg-cream p-3 shadow-romantic sm:ml-0" style="--tilt: -2deg">
+									<img class="mx-auto max-h-[26rem] w-full rounded-xl bg-petal/40 object-contain" src="year5.jpeg" alt="Couple traveling during sunset" />
+								</div>
+							</div>
+							<div class="relative rounded-2xl bg-white/80 p-5 shadow-sm sm:pl-10">
+								<span class="absolute -left-[2.3rem] top-7 h-4 w-4 rounded-full border-4 border-cream bg-rosegold sm:left-auto sm:-right-[2.8rem]"></span>
+								<p class="text-sm font-extrabold uppercase tracking-[0.22em] text-rosegold">2024</p>
+								<h3 class="mt-1 font-heading text-2xl font-bold">Adventures & Milestones</h3>
+								<p class="mt-2 text-charcoal/75">We kept choosing each other in every season, every challenge, every new dream to chase.</p>
+							</div>
+						</article>
+
+						<article class="fade-in relative sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
+							<div class="order-2 mb-5 sm:order-1 sm:mb-0 sm:pl-12">
+								<div class="polaroid ml-10 rounded-2xl border border-rosegold/20 bg-cream p-3 shadow-romantic sm:ml-0" style="--tilt: 1deg">
+									<img class="mx-auto max-h-[26rem] w-full rounded-xl bg-petal/40 object-contain" src="year6.jpeg" alt="Couple laughing in natural light" />
+								</div>
+							</div>
+							<div class="order-1 relative rounded-2xl bg-white/80 p-5 shadow-sm sm:order-2 sm:pr-10">
+								<span class="absolute -left-[2.3rem] top-7 h-4 w-4 rounded-full border-4 border-cream bg-rosegold sm:-left-[2.8rem]"></span>
+								<p class="text-sm font-extrabold uppercase tracking-[0.22em] text-rosegold">2025</p>
+								<h3 class="mt-1 font-heading text-2xl font-bold">Still My Favorite Person</h3>
+								<p class="mt-2 text-charcoal/75">You still give me butterflies and the calmest peace, all at once. That is my favorite kind of magic.</p>
+							</div>
+						</article>
+
+						<article class="fade-in relative sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
+							<div class="mb-5 sm:mb-0 sm:pr-12">
+								<div class="polaroid ml-10 rounded-2xl border border-rosegold/20 bg-cream p-3 shadow-romantic sm:ml-0" style="--tilt: -1deg">
+									<img class="mx-auto max-h-[26rem] w-full rounded-xl bg-petal/40 object-contain" src="year7.jpeg" alt="Couple laughing in natural light" />
+								</div>
+							</div>
+							<div class="relative rounded-2xl bg-white/80 p-5 shadow-sm sm:pl-10">
+								<span class="absolute -left-[2.3rem] top-7 h-4 w-4 rounded-full border-4 border-cream bg-rosegold sm:left-auto sm:-right-[2.8rem]"></span>
+								<p class="text-sm font-extrabold uppercase tracking-[0.22em] text-rosegold">2026</p>
+								<h3 class="mt-1 font-heading text-2xl font-bold">7 Years, Infinite More</h3>
+								<p class="mt-2 text-charcoal/75">Today we celebrate us, your birthday, and all the love we have already lived and still have left to write.</p>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="reasons" class="fade-in scroll-mt-20">
+				<div class="mb-10 text-center">
+					<p class="text-xs font-extrabold uppercase tracking-[0.3em] text-rosegold/90">For Every Year</p>
+					<h2 class="font-heading text-4xl font-bold sm:text-5xl">7 Reasons Why I Love You</h2>
+					<p class="mx-auto mt-3 max-w-2xl text-charcoal/75">Tap each card to flip and reveal a reason. Seven years later, and I still fall for you every single day. I love you so much.</p>
+				</div>
+
+				<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+					<button class="reason-card h-56 text-left" type="button" aria-label="Reveal reason one">
+						<div class="reason-card-inner h-full">
+							<div class="reason-face romantic-glass flex h-full items-center justify-center rounded-3xl border border-rosegold/20 p-6 shadow-sm">
+								<p class="font-heading text-3xl font-bold">Year 1</p>
+							</div>
+							<div class="reason-face reason-back absolute inset-0 rounded-3xl border border-rosegold/20 bg-white/90 p-6 shadow-sm">
+								<p class="font-semibold text-rosegold">Reason #1</p>
+								<p class="mt-2">I love you because from day one, you made me feel safe being exactly myself.</p>
+							</div>
+						</div>
+					</button>
+
+					<button class="reason-card h-56 text-left" type="button" aria-label="Reveal reason two">
+						<div class="reason-card-inner h-full">
+							<div class="reason-face romantic-glass flex h-full items-center justify-center rounded-3xl border border-rosegold/20 p-6 shadow-sm">
+								<p class="font-heading text-3xl font-bold">Year 2</p>
+							</div>
+							<div class="reason-face reason-back absolute inset-0 rounded-3xl border border-rosegold/20 bg-white/90 p-6 shadow-sm">
+								<p class="font-semibold text-rosegold">Reason #2</p>
+								<p class="mt-2">I love you because your smile can calm my heart, even on my hardest days.</p>
+							</div>
+						</div>
+					</button>
+
+					<button class="reason-card h-56 text-left" type="button" aria-label="Reveal reason three">
+						<div class="reason-card-inner h-full">
+							<div class="reason-face romantic-glass flex h-full items-center justify-center rounded-3xl border border-rosegold/20 p-6 shadow-sm">
+								<p class="font-heading text-3xl font-bold">Year 3</p>
+							</div>
+							<div class="reason-face reason-back absolute inset-0 rounded-3xl border border-rosegold/20 bg-white/90 p-6 shadow-sm">
+								<p class="font-semibold text-rosegold">Reason #3</p>
+								<p class="mt-2">I love you because you notice the little things about me and hold them gently.</p>
+							</div>
+						</div>
+					</button>
+
+					<button class="reason-card h-56 text-left" type="button" aria-label="Reveal reason four">
+						<div class="reason-card-inner h-full">
+							<div class="reason-face romantic-glass flex h-full items-center justify-center rounded-3xl border border-rosegold/20 p-6 shadow-sm">
+								<p class="font-heading text-3xl font-bold">Year 4</p>
+							</div>
+							<div class="reason-face reason-back absolute inset-0 rounded-3xl border border-rosegold/20 bg-white/90 p-6 shadow-sm">
+								<p class="font-semibold text-rosegold">Reason #4</p>
+								<p class="mt-2">I love you because you keep our laughter alive with the silliest jokes only we understand.</p>
+							</div>
+						</div>
+					</button>
+
+					<button class="reason-card h-56 text-left" type="button" aria-label="Reveal reason five">
+						<div class="reason-card-inner h-full">
+							<div class="reason-face romantic-glass flex h-full items-center justify-center rounded-3xl border border-rosegold/20 p-6 shadow-sm">
+								<p class="font-heading text-3xl font-bold">Year 5</p>
+							</div>
+							<div class="reason-face reason-back absolute inset-0 rounded-3xl border border-rosegold/20 bg-white/90 p-6 shadow-sm">
+								<p class="font-semibold text-rosegold">Reason #5</p>
+								<p class="mt-2">I love you because you believe in my dreams and cheer for me like we are one team.</p>
+							</div>
+						</div>
+					</button>
+
+					<button class="reason-card h-56 text-left" type="button" aria-label="Reveal reason six">
+						<div class="reason-card-inner h-full">
+							<div class="reason-face romantic-glass flex h-full items-center justify-center rounded-3xl border border-rosegold/20 p-6 shadow-sm">
+								<p class="font-heading text-3xl font-bold">Year 6</p>
+							</div>
+							<div class="reason-face reason-back absolute inset-0 rounded-3xl border border-rosegold/20 bg-white/90 p-6 shadow-sm">
+								<p class="font-semibold text-rosegold">Reason #6</p>
+								<p class="mt-2">I love you because you are my peace, my strength, and my home in every season.</p>
+							</div>
+						</div>
+					</button>
+
+					<button class="reason-card h-56 text-left sm:col-span-2 lg:col-span-3" type="button" aria-label="Reveal reason seven">
+						<div class="reason-card-inner h-full">
+							<div class="reason-face romantic-glass flex h-full items-center justify-center rounded-3xl border border-rosegold/20 p-6 shadow-sm">
+								<p class="font-heading text-3xl font-bold">Year 7</p>
+							</div>
+							<div class="reason-face reason-back absolute inset-0 rounded-3xl border border-rosegold/20 bg-white/90 p-6 shadow-sm">
+								<p class="font-semibold text-rosegold">Reason #7</p>
+								<p class="mt-2">I love you more deeply with every year, and I will keep choosing you, today and always.</p>
+							</div>
+						</div>
+					</button>
+				</div>
+			</section>
+
+			<section id="coupons" class="fade-in scroll-mt-20">
+				<div class="mb-10 text-center">
+					<p class="text-xs font-extrabold uppercase tracking-[0.3em] text-rosegold/90">For My Birthday Boy</p>
+					<h2 class="font-heading text-4xl font-bold sm:text-5xl">Digital Date Coupon Book</h2>
+				</div>
+
+				<div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+					<article class="relative overflow-hidden rounded-3xl border border-dashed border-rosegold/50 bg-white/85 p-6 shadow-sm">
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-rosegold">Coupon 01</p>
+						<h3 class="mt-2 font-heading text-3xl font-semibold">A meal date</h3>
+						<p class="mt-2 text-charcoal/75">Your favorite restaurant, meal, drink & dessert.</p>
+						<button class="redeem-btn mt-5 rounded-full bg-rosegold px-5 py-2 text-sm font-bold text-cream transition hover:brightness-110" type="button">Redeem</button>
+						<span class="stamp pointer-events-none absolute right-5 top-5 rounded-full border-4 border-rose-500 px-4 py-2 text-sm font-extrabold uppercase tracking-[0.2em] text-rose-500">Redeemed!</span>
+					</article>
+
+					<article class="relative overflow-hidden rounded-3xl border border-dashed border-rosegold/50 bg-white/85 p-6 shadow-sm">
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-rosegold">Coupon 02</p>
+						<h3 class="mt-2 font-heading text-3xl font-semibold">Movie of Your Choice</h3>
+						<p class="mt-2 text-charcoal/75">You pick the movie, snacks, and where. You choice.</p>
+						<button class="redeem-btn mt-5 rounded-full bg-rosegold px-5 py-2 text-sm font-bold text-cream transition hover:brightness-110" type="button">Redeem</button>
+						<span class="stamp pointer-events-none absolute right-5 top-5 rounded-full border-4 border-rose-500 px-4 py-2 text-sm font-extrabold uppercase tracking-[0.2em] text-rose-500">Redeemed!</span>
+					</article>
+
+					<article class="relative overflow-hidden rounded-3xl border border-dashed border-rosegold/50 bg-white/85 p-6 shadow-sm">
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-rosegold">Coupon 03</p>
+						<h3 class="mt-2 font-heading text-3xl font-semibold">Free Pass</h3>
+						<p class="mt-2 text-charcoal/75">A mini free card, you can use this when I'm angry. I will stop scolding you.</p>
+						<button class="redeem-btn mt-5 rounded-full bg-rosegold px-5 py-2 text-sm font-bold text-cream transition hover:brightness-110" type="button">Redeem</button>
+						<span class="stamp pointer-events-none absolute right-5 top-5 rounded-full border-4 border-rose-500 px-4 py-2 text-sm font-extrabold uppercase tracking-[0.2em] text-rose-500">Redeemed!</span>
+					</article>
+				</div>
+			</section>
+
+			<section id="thankyou-card" class="fade-in scroll-mt-20">
+				<div class="mb-10 text-center">
+					<p class="text-xs font-extrabold uppercase tracking-[0.3em] text-rosegold/90">A Special Memory</p>
+					<h2 class="font-heading text-4xl font-bold sm:text-5xl">Send me a thankyou card Bole</h2>
+					<p class="mx-auto mt-3 max-w-2xl text-charcoal/75">Tap the button to open Bole's camera, take a photo, and save your framed thankyou card. Then send CM</p>
+				</div>
+
+				<div class="romantic-glass mx-auto max-w-3xl rounded-3xl border border-rosegold/20 p-6 shadow-romantic sm:p-8">
+					<div class="flex flex-wrap justify-center gap-3">
+						<button id="generateCardBtn" class="rounded-full bg-rosegold px-6 py-3 text-sm font-extrabold uppercase tracking-[0.15em] text-cream transition hover:brightness-110" type="button">Genarate thankyou card for CM</button>
+						<button id="captureBtn" class="hidden rounded-full bg-charcoal px-6 py-3 text-sm font-extrabold uppercase tracking-[0.15em] text-cream transition hover:brightness-110" type="button">Take Photo</button>
+						<button id="downloadCardBtn" class="hidden rounded-full bg-emerald-700 px-6 py-3 text-sm font-extrabold uppercase tracking-[0.15em] text-cream transition hover:bg-emerald-800" type="button">Download Card</button>
+					</div>
+
+					<p id="cameraStatus" class="mt-4 text-sm text-charcoal/75">Press the button to start Bole's camera.</p>
+					<input id="cameraFileInput" class="hidden" type="file" accept="image/*" capture="environment" />
+
+					<div id="cameraStage" class="mt-5 hidden overflow-hidden rounded-2xl border border-rosegold/25 bg-white/70 p-3">
+						<video id="cameraFeed" class="mx-auto max-h-[28rem] w-full rounded-xl bg-petal/40 object-cover" autoplay playsinline muted></video>
+					</div>
+
+					<div id="cardPreview" class="card-frame mx-auto mt-6 hidden w-full max-w-xl rounded-3xl p-4 sm:p-5">
+						<img id="capturedPhoto" class="h-auto w-full rounded-2xl border-2 border-rosegold/40 object-cover" alt="Captured thankyou photo" />
+						<p class="mt-3 font-heading text-xl font-bold tracking-wide text-charcoal sm:text-2xl">21.11.2026 | I LOVE YOU CM</p>
+					</div>
+
+					<canvas id="cardCanvas" class="hidden" aria-hidden="true"></canvas>
+				</div>
+			</section>
+		</main>
+
+		<footer class="relative border-t border-rosegold/20 bg-white/65 px-6 py-14">
+			<div class="mx-auto max-w-4xl text-center">
+				<p class="text-xs font-extrabold uppercase tracking-[0.3em] text-rosegold/80">A Secret Love Note</p>
+				<blockquote class="mx-auto mt-4 max-w-3xl font-heading text-3xl font-semibold leading-snug text-charcoal sm:text-4xl">
+					"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
+				</blockquote>
+				<p class="mt-4 text-charcoal/75">Happy birthday and happy anniversary, my love. Here is to us, always.</p>
+			</div>
+
+		</footer>
+
+		<script>
+			const startDate = new Date("2020-11-21T23:20:00");
+
+			const yearsEl = document.getElementById("countYears");
+			const daysEl = document.getElementById("countDays");
+			const hoursEl = document.getElementById("countHours");
+			const minutesEl = document.getElementById("countMinutes");
+			const secondsEl = document.getElementById("countSeconds");
+
+			function calculateRelationshipTime() {
+				const now = new Date();
+				let years = now.getFullYear() - startDate.getFullYear();
+
+				const yearAnniversary = new Date(startDate);
+				yearAnniversary.setFullYear(startDate.getFullYear() + years);
+
+				if (now < yearAnniversary) {
+					years -= 1;
+					yearAnniversary.setFullYear(startDate.getFullYear() + years);
+				}
+
+				let diffMs = now - yearAnniversary;
+				if (diffMs < 0) diffMs = 0;
+
+				const totalSeconds = Math.floor(diffMs / 1000);
+				const days = Math.floor(totalSeconds / 86400);
+				const hours = Math.floor((totalSeconds % 86400) / 3600);
+				const minutes = Math.floor((totalSeconds % 3600) / 60);
+				const seconds = totalSeconds % 60;
+
+				yearsEl.textContent = String(years);
+				daysEl.textContent = String(days);
+				hoursEl.textContent = String(hours).padStart(2, "0");
+				minutesEl.textContent = String(minutes).padStart(2, "0");
+				secondsEl.textContent = String(seconds).padStart(2, "0");
+			}
+
+			calculateRelationshipTime();
+			setInterval(calculateRelationshipTime, 1000);
+
+			const fadeItems = document.querySelectorAll(".fade-in");
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("visible");
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.2 }
+			);
+
+			fadeItems.forEach((item) => observer.observe(item));
+
+			document.querySelectorAll(".reason-card").forEach((card) => {
+				card.addEventListener("click", () => {
+					card.classList.toggle("flipped");
+				});
+			});
+
+			document.querySelectorAll(".redeem-btn").forEach((button) => {
+				button.addEventListener("click", () => {
+					const container = button.closest("article");
+					const stamp = container.querySelector(".stamp");
+
+					stamp.classList.remove("redeemed");
+					void stamp.offsetWidth;
+					stamp.classList.add("redeemed");
+
+					button.textContent = "Redeemed";
+					button.disabled = true;
+					button.classList.add("opacity-60", "cursor-not-allowed");
+				});
+			});
+
+			const bgMusic = new Audio("NaviSong.mp3");
+			bgMusic.loop = true;
+			bgMusic.preload = "auto";
+			bgMusic.volume = 0.6;
+
+			const generateCardBtn = document.getElementById("generateCardBtn");
+			const captureBtn = document.getElementById("captureBtn");
+			const downloadCardBtn = document.getElementById("downloadCardBtn");
+			const cameraStatus = document.getElementById("cameraStatus");
+			const cameraFileInput = document.getElementById("cameraFileInput");
+			const cameraStage = document.getElementById("cameraStage");
+			const cameraFeed = document.getElementById("cameraFeed");
+			const cardPreview = document.getElementById("cardPreview");
+			const capturedPhoto = document.getElementById("capturedPhoto");
+			const cardCanvas = document.getElementById("cardCanvas");
+
+			let cameraStream = null;
+			let cardDownloadUrl = "";
+
+			function stopCameraStream() {
+				if (cameraStream) {
+					cameraStream.getTracks().forEach((track) => track.stop());
+					cameraStream = null;
+				}
+			}
+
+			function setCameraStatus(message) {
+				cameraStatus.textContent = message;
+			}
+
+			function resetCardDownloadUrl() {
+				if (cardDownloadUrl) {
+					URL.revokeObjectURL(cardDownloadUrl);
+					cardDownloadUrl = "";
+				}
+			}
+
+			function drawThankyouCard(imageSource) {
+				const sourceWidth = imageSource.videoWidth || imageSource.naturalWidth;
+				const sourceHeight = imageSource.videoHeight || imageSource.naturalHeight;
+
+				if (!sourceWidth || !sourceHeight) {
+					throw new Error("Image source is not ready.");
+				}
+
+				const framePadding = 40;
+				const textBlockHeight = 90;
+				const canvasWidth = sourceWidth + framePadding * 2;
+				const canvasHeight = sourceHeight + framePadding * 2 + textBlockHeight;
+
+				cardCanvas.width = canvasWidth;
+				cardCanvas.height = canvasHeight;
+
+				const ctx = cardCanvas.getContext("2d");
+				ctx.fillStyle = "#fef7f2";
+				ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+				ctx.strokeStyle = "#b9897f";
+				ctx.lineWidth = 16;
+				ctx.strokeRect(8, 8, canvasWidth - 16, canvasHeight - 16);
+
+				ctx.drawImage(imageSource, framePadding, framePadding, sourceWidth, sourceHeight);
+
+				ctx.fillStyle = "#2f2a2a";
+				const fontSize = Math.min(44, Math.max(28, Math.floor(canvasWidth * 0.055)));
+				ctx.font = '700 ' + fontSize + 'px "Cormorant Garamond", serif';
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				ctx.fillText("21.11.2026 | I LOVE YOU CM", canvasWidth / 2, canvasHeight - framePadding - 22);
+
+				return cardCanvas.toDataURL("image/png");
+			}
+
+			async function renderCardFromSource(imageSource) {
+				try {
+					const cardDataUrl = drawThankyouCard(imageSource);
+					capturedPhoto.src = cardDataUrl;
+					cardPreview.classList.remove("hidden");
+					downloadCardBtn.classList.remove("hidden");
+					setCameraStatus("Card generated successfully. You can now download it.");
+
+					resetCardDownloadUrl();
+					const blob = await (await fetch(cardDataUrl)).blob();
+					cardDownloadUrl = URL.createObjectURL(blob);
+				} catch (_error) {
+					setCameraStatus("Could not create the card. Please try again.");
+				}
+			}
+
+			async function startCameraCapture() {
+				if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+					cameraFileInput.click();
+					setCameraStatus("Camera preview is not available here. Please choose or take a photo.");
+					return;
+				}
+
+				try {
+					stopCameraStream();
+					cameraStream = await navigator.mediaDevices.getUserMedia({
+						video: {
+							facingMode: "user",
+						},
+						audio: false,
+					});
+
+					cameraFeed.srcObject = cameraStream;
+					cameraStage.classList.remove("hidden");
+					captureBtn.classList.remove("hidden");
+					setCameraStatus("Camera is ready. Press Take Photo.");
+				} catch (_error) {
+					cameraFileInput.click();
+					setCameraStatus("Camera permission was blocked. Please choose or take a photo manually.");
+				}
+			}
+
+			generateCardBtn?.addEventListener("click", async () => {
+				await startCameraCapture();
+			});
+
+			captureBtn?.addEventListener("click", async () => {
+				await renderCardFromSource(cameraFeed);
+				stopCameraStream();
+				cameraStage.classList.add("hidden");
+				captureBtn.classList.add("hidden");
+			});
+
+			cameraFileInput?.addEventListener("change", async (event) => {
+				const file = event.target.files && event.target.files[0];
+				if (!file) {
+					return;
+				}
+
+				const img = new Image();
+				img.onload = async () => {
+					await renderCardFromSource(img);
+					URL.revokeObjectURL(img.src);
+				};
+				img.src = URL.createObjectURL(file);
+			});
+
+			downloadCardBtn?.addEventListener("click", () => {
+				if (!cardDownloadUrl) {
+					setCameraStatus("Please take a photo first.");
+					return;
+				}
+
+				const anchor = document.createElement("a");
+				anchor.href = cardDownloadUrl;
+				anchor.download = "thankyou-card-21-11-2026.png";
+				document.body.appendChild(anchor);
+				anchor.click();
+				anchor.remove();
+			});
+
+			window.addEventListener("beforeunload", () => {
+				stopCameraStream();
+				resetCardDownloadUrl();
+			});
+
+			async function playMusic() {
+				try {
+					await bgMusic.play();
+				} catch (_err) {
+					// Autoplay can be blocked; we retry once the user interacts.
+				}
+			}
+
+			window.addEventListener("load", () => {
+				playMusic();
+			});
+
+			const resumeMusicOnInteraction = async () => {
+				await playMusic();
+				if (!bgMusic.paused) {
+					document.removeEventListener("click", resumeMusicOnInteraction);
+					document.removeEventListener("touchstart", resumeMusicOnInteraction);
+					document.removeEventListener("keydown", resumeMusicOnInteraction);
+				}
+			};
+
+			document.addEventListener("click", resumeMusicOnInteraction);
+			document.addEventListener("touchstart", resumeMusicOnInteraction);
+			document.addEventListener("keydown", resumeMusicOnInteraction);
+		</script>
+	</body>
+</html>
