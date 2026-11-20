@@ -154,6 +154,15 @@
 				}
 			}
 
+			@media (max-width: 639px) {
+				#journey,
+				#journey .fade-in {
+					opacity: 1 !important;
+					transform: none !important;
+					visibility: visible !important;
+				}
+			}
+
 			@media (prefers-reduced-motion: reduce) {
 				.fade-in,
 				.reason-card-inner,
@@ -550,6 +559,13 @@
 			);
 
 			fadeItems.forEach((item) => observer.observe(item));
+
+			// Keep the journey fully visible on mobile, even when scroll observation is unreliable.
+			if (window.innerWidth < 640) {
+				document.querySelectorAll("#journey, #journey .fade-in").forEach((item) => {
+					item.classList.add("visible");
+				});
+			}
 
 			document.querySelectorAll(".reason-card").forEach((card) => {
 				card.addEventListener("click", () => {
